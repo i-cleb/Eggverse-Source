@@ -26,6 +26,9 @@ local diag2_1 = workspace["Water Island"]["Easter Island Head"].DiagHolder["Dial
 local diag2_2 = ServerStorage["Dialog2-2"]
 local hatProx = workspace["Water Island"]["Easter Island Head"].ProxHolder.GiveHat
 local hat2 = ServerStorage.Hat2
+local eggguy1 = workspace["Adventurer in Chair"]
+local eggguy2 = ServerStorage["Adventurer in Chair 2"]
+local spotprox = workspace.ProxHolder.SpotProx
 
 local haveWaterEgg = false
 local haveFireEgg = false
@@ -185,6 +188,23 @@ function redTeleB(part)
 	end
 end
 RedB.Touched:Connect(redTeleB)
+
+local LadderUp = workspace.LadderUp
+local LadderDown = ServerStorage.LadderDown
+
+function changeAdvPos()
+	eggguy1:Destroy()
+	local eggguy2Copy = eggguy2:Clone()
+	eggguy2Copy.Parent = workspace.Volcano
+	spotprox:Destroy()
+	
+	LadderUp:Destroy()
+	local LadderDownCopy = LadderDown:Clone()
+	LadderDownCopy.Parent = workspace.Volcano
+
+end
+spotprox.Triggered:Connect(changeAdvPos)
+
 
 -----------------------------------------------------------------------------------------------jungle island code
 
